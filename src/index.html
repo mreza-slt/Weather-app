@@ -5,44 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../dist/output.css" rel="stylesheet" />
-    <title>Document</title>
+    <title>Weather-app-created:mohammadreza soltani</title>
   </head>
-  <body class="px-3 py-6">
+  <body class="sm:py-6 sm:px-3 sm:h-screen">
     <main
-      class="min-w-full h-full flex flex-col rounded-3xl bg-black-800 text-white shadow-[0_0_70px_-10px_rgba(0,0,0,0.2)] sm:flex-row sm:h-96 sm:w-[630px] sm:min-w-0"
+      class="flex flex-col w-full rounded-3xl bg-black-800 text-white shadow-[0_0_70px_-10px_rgba(0,0,0,0.2)] sm:flex-row sm:h-96 sm:w-[630px]"
     >
       <section
-        class="section relative h-full sm:h-full w-full sm:w-[45%] rounded-3xl bg-[url('../src/image/bg.avif')] shadow-[0_0_20px_-10px_rgba(0,0,0,0.2)]"
+        class="section relative h-60 sm:h-full w-full bg-[url('../src/image/bg.avif')] sm:w-[45%] rounded-3xl shadow-[0_0_20px_-10px_rgba(0,0,0,0.2)]"
       >
+        <div class="gradiant w-full h-full rounded-3xl opacity-80"></div>
         <div
-          class="gradiant w-full h-full rounded-3xl opacity-80 mb-36 sm:mb-0"
-        ></div>
-        <div
-          class="absolute w-full left-0 top-0 flex sm:flex-col justify-between px-6 pt-6"
+          class="absolute w-full h-full left-0 top-0 flex sm:flex-col justify-between px-6 pt-4"
         >
-          <div class="">
+          <div>
             <h1 class="prose-2xl font-bold leading-loose">Tuesday</h1>
-            <span class="block">15 Jan 2019</span>
+            <span class="block font-bold">15 Jan 2019</span>
             <!-- location icon -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="feather feather-map-pin inline-block h-3 w-auto mr-1"
+              class="feather feather-map-pin inline-block h-5 mr-1"
             >
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
               <circle cx="12" cy="10" r="3"></circle>
             </svg>
-            <span class="inline-block mt-3">Tehran, IR</span>
+            <span class="inline-block mt-4 font-bold">Tehran, IR</span>
           </div>
-          <!-- icon weather -->
-          <div class="">
+          <!-- weather icon -->
+          <div class="pb-8">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -65,15 +61,15 @@
               <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
               <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
             </svg>
-            <h1 class="font-bold text-6xl">29°C</h1>
-            <h3>Sunny</h3>
+            <h1 class="font-bold text-6xl mt-3">29°C</h1>
+            <h3 class="font-bold mt-3 text-3xl">Sunny</h3>
           </div>
         </div>
       </section>
 
-      <section class="relative w-full sm:w-[55%] h-full pt-4">
+      <section class="relative w-full sm:w-[55%] h-full pt-8">
         <!-- today-info-container -->
-        <div class="px-8 pt-4 pb-3 rounded-xl">
+        <div class="px-8 pb-3 rounded-xl">
           <div class="mb-3">
             <span class="font-bold">PRECIPITATION</span
             ><span class="float-right">0 %</span>
@@ -91,12 +87,12 @@
           </div>
         </div>
         <!-- week list container -->
-        <div>
+        <div class="mt-6">
           <ul
-            class="list-none my-3 mx-9 shadow-[0_0_50px_-5px_rgba(0,0,0,0.25)] rounded-[10px] bg-white"
+            class="grid grid-cols-4 list-none my-3 mx-8 shadow-[0_0_50px_-5px_rgba(0,0,0,0.25)] rounded-[10px] bg-white"
           >
             <li
-              class="float-left p-4 cursor-pointer transition-all ease-linear duration-200 text-[#222831] rounded-[10px] bg-white shadow-[0_0_40px_-5px_rgba(0,0,0,0.2)] hover:scale-110"
+              class="cursor-pointer py-1 transition-all ease-linear duration-200 text-[#222831] rounded-[10px] bg-white shadow-[0_0_40px_-5px_rgba(0,0,0,0.2)] hover:scale-110"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +119,7 @@
               ><span class="block text-center font-bold mt-[10px]">29°C</span>
             </li>
             <li
-              class="float-left p-4 cursor-pointer transition-all ease-linear duration-200 text-[#222831] rounded-[10px] hover:bg-white hover:scale-110 hover:shadow-[0_0_40px_-5px_rgba(0,0,0,0.2)]"
+              class="cursor-pointer py-1 transition-all ease-linear duration-200 text-[#222831] rounded-[10px] hover:bg-white hover:scale-110 hover:shadow-[0_0_40px_-5px_rgba(0,0,0,0.2)]"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -144,7 +140,7 @@
               ><span class="block text-center font-bold mt-[10px]">21°C</span>
             </li>
             <li
-              class="float-left p-4 cursor-pointer transition-all ease-linear duration-200 text-[#222831] rounded-[10px] hover:bg-white hover:scale-110 hover:shadow-[0_0_40px_-5px_rgba(0,0,0,0.2)]"
+              class="cursor-pointer py-1 transition-all ease-linear duration-200 text-[#222831] rounded-[10px] hover:bg-white hover:scale-110 hover:shadow-[0_0_40px_-5px_rgba(0,0,0,0.2)]"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +167,7 @@
               ><span class="block text-center font-bold mt-[10px]">08°C</span>
             </li>
             <li
-              class="float-left p-4 cursor-pointer transition-all ease-linear duration-200 text-[#222831] rounded-[10px] hover:bg-white hover:scale-110 hover:shadow-[0_0_40px_-5px_rgba(0,0,0,0.2)]"
+              class="cursor-pointer py-1 transition-all ease-linear duration-200 text-[#222831] rounded-[10px] hover:bg-white hover:scale-110 hover:shadow-[0_0_40px_-5px_rgba(0,0,0,0.2)]"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -198,7 +194,7 @@
           </ul>
         </div>
         <!-- location-container -->
-        <div class="py-6 px-9">
+        <div class="py-6 px-9 mt-6">
           <button
             class="gradiant flex justify-center outline-none w-full box-border border-0 rounded-[25px] p-[10px] text-white font-bold shadow-[0_0_30px_-5px_rgba(0,0,0,0.25)] transition-all ease-linear duration-200 hover:scale-95"
           >
