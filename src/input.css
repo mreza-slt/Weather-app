@@ -6,6 +6,7 @@
 
 :root {
   --gradient: linear-gradient(135deg, #72edf2 10%, #5151e5 100%);
+  --danger: linear-gradient(135deg, #f2a572 10%, #e55151 100%);
 }
 
 * {
@@ -20,7 +21,7 @@ body {
   width: 100%;
   height: 100%;
   font-family: "Montserrat", sans-serif;
-  background-color: #fff;
+  background-color: #343d4b;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,6 +29,9 @@ body {
 
 .gradiant {
   background-image: var(--gradient);
+}
+.danger {
+  background-image: var(--danger);
 }
 
 @media screen and (min-width: 640px) {

@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../dist/output.css" rel="stylesheet" />
-    <title>Weather-app-created:mohammadreza soltani</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>    <title>Weather-app-created:mohammadreza soltani</title>
   </head>
   <body class="sm:py-6 sm:px-3 sm:h-screen">
     <main
@@ -19,8 +21,8 @@
           class="absolute w-full h-full left-0 top-0 flex sm:flex-col justify-between px-6 pt-4"
         >
           <div>
-            <h1 class="prose-2xl font-bold leading-loose">Tuesday</h1>
-            <span class="block font-bold">15 Jan 2019</span>
+            <h1 class="prose-2xl font-bold leading-loose today"></h1>
+            <span class="block font-bold date"></span>
             <!-- location icon -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -35,34 +37,13 @@
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
               <circle cx="12" cy="10" r="3"></circle>
             </svg>
-            <span class="inline-block mt-4 font-bold">Tehran, IR</span>
+            <span class="inline-block mt-4 font-bold w-location"></span>
           </div>
           <!-- weather icon -->
-          <div class="pb-8">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-14 h-auto feather-sun weather-icon"
-            >
-              <circle cx="12" cy="12" r="5"></circle>
-              <line x1="12" y1="1" x2="12" y2="3"></line>
-              <line x1="12" y1="21" x2="12" y2="23"></line>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-              <line x1="1" y1="12" x2="3" y2="12"></line>
-              <line x1="21" y1="12" x2="23" y2="12"></line>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-            <h1 class="font-bold text-6xl mt-3">29°C</h1>
-            <h3 class="font-bold mt-3 text-3xl">Sunny</h3>
+          <div class="pb-8 flex flex-col text-center">
+            <img class=" w-24 m-0 h-24 w-icon self-end sm:self-start"></img>
+            <h1 class="font-bold text-3xl mt-3 w-temp"></h1>
+            <h3 class="font-bold mt-3 text-2xl w-main"></h3>
           </div>
         </div>
       </section>
@@ -72,17 +53,17 @@
         <div class="px-8 pb-3 rounded-xl">
           <div class="mb-3">
             <span class="font-bold">PRECIPITATION</span
-            ><span class="float-right">0 %</span>
+            ><span class="float-right w-pressure"> %</span>
             <div class="clear-both"></div>
           </div>
           <div class="mb-3">
             <span class="font-bold">HUMIDITY</span
-            ><span class="float-right">34 %</span>
+            ><span class="float-right w-humidity"> %</span>
             <div class="clear-both"></div>
           </div>
           <div class="mb-3">
             <span class="font-bold">WIND</span
-            ><span class="float-right">0 km/h</span>
+            ><span class="float-right w-wind_speed"> km/h</span>
             <div class="clear-both"></div>
           </div>
         </div>
@@ -196,7 +177,7 @@
         <!-- location-container -->
         <div class="py-6 px-9 mt-6">
           <button
-            class="gradiant flex justify-center outline-none w-full box-border border-0 rounded-[25px] p-[10px] text-white font-bold shadow-[0_0_30px_-5px_rgba(0,0,0,0.25)] transition-all ease-linear duration-200 hover:scale-95"
+            class="modal-open  gradiant flex justify-center outline-none w-full box-border border-0 rounded-[25px] p-[10px] text-white font-bold shadow-[0_0_30px_-5px_rgba(0,0,0,0.25)] transition-all ease-linear duration-200 hover:scale-95"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -217,5 +198,78 @@
         </div>
       </section>
     </main>
+
+  <!--Modal-->
+  <div id="locationModal" class="modal rounded opacity-0 pointer-events-none fixed w-full h-[20rem] top-4 left-0 flex  justify-center">
+    <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+    
+    <div class="modal-container bg-white  w-11/12 md:max-w-md mx-auto rounded-[2.25rem] shadow-lg z-50 overflow-y-auto">
+      
+    
+
+      <!-- Add margin if you want to see some of the overlay behind the modal-->
+      <div class="modal-content px-6">
+        <h1 class="mt-4 prose-2xl text-center font-semibold">Change location</h1>
+        
+          <form class="  rounded   py-4 mb-4">
+           
+            <div class="mb-6">
+              <label class="city block text-gray-700 font-bold mb-2 text-xl" for="city">
+                City
+              </label>
+              <input id="city" class=" border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight outline-none focus:border-2 focus:border-[#0345af] " id="City" type="text" >
+            </div>
+          <button
+          id="w-change-btn"
+          class="flex justify-center items-center mb-6 gradiant  outline-none w-full box-border border-0 rounded-[25px] p-[10px] text-white font-bold shadow-[0_0_30px_-5px_rgba(0,0,0,0.25)] transition-all ease-linear duration-200 hover:scale-95"
+          >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-map-pin h-4 w-auto mr-1"
+          >
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle></svg
+          ><span>Change location</span>
+        </button>
+        <button class="modal-open danger outline-none w-full box-border border-0 rounded-[25px] p-[10px] text-white font-bold shadow-[0_0_30px_-5px_rgba(0,0,0,0.25)] transition-all ease-linear duration-200 hover:scale-95"> Close </button>
+
+                   
+         </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var openmodal = document.querySelectorAll('.modal-open')
+    for (var i = 0; i < openmodal.length; i++) {
+      openmodal[i].addEventListener('click', function(event){
+    	event.preventDefault()
+    	toggleModal()
+      })
+    }
+    function toggleModal () {
+      document.querySelector(".city").innerHTML="City"
+      document.querySelector(".city").style.color="black"
+      const body = document.querySelector('body')
+      const modal = document.querySelector('.modal')
+      modal.classList.toggle('opacity-0')
+      modal.classList.toggle('pointer-events-none')
+      body.classList.toggle('modal-active')
+    }
+    
+     
+  </script>
+    <script src="./js/weather.js"></script>
+    <script src="./js/ui.js"></script>
+    <script src="./js/storage.js"></script>
+    <script src="./js/app.js"></script>
   </body>
 </html>
