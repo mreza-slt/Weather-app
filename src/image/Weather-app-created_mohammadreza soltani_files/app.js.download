@@ -19,8 +19,6 @@ function changeLocation(e) {
     document.querySelector(".city").innerHTML = "City must not be empty";
     document.querySelector(".city").style.color = "red";
   } else {
-    toggleModal();
-
     weather.changeLocation(city);
     storage.setLocationData(city);
     getWeather();
@@ -29,12 +27,17 @@ function changeLocation(e) {
 
 function getWeather() {
   // get days
-  const days = ["Sun", "Mon", "Tues", "Wednes", "Thurs", "Fri", "Satur"];
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
   const d = new Date();
-  const today = days[d.getDay()]; //1 today
-  const to_1 = days[d.getDay() + 1]; //2 tomarrow
-  const to_2 = days[d.getDay() + 2]; //3 ...
-  const to_3 = days[d.getDay() + 3]; //4 ...
+  const today = days[d.getDay()];
 
   // get full years
   const monthNames = [
@@ -61,8 +64,8 @@ function getWeather() {
   weather
     .getWeather()
     .then((result) => {
-      console.log(result.forecast.forecastday[0]);
-      ui.paint(result, weather.location, today, newdate, to_1, to_2, to_3);
+      console.log(result);
+      ui.paint(result, weather.location, today, newdate);
     })
     .catch((err) => console.log(err.message));
 }

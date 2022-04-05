@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)file:///C:/Users/m.reza/Desktop/Weather%20app/src/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./Weather-app-created_mohammadreza soltani_files/output.css" rel="stylesheet">
+    <script src="./Weather-app-created_mohammadreza soltani_files/jquery-3.4.1.slim.min.js.download" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>    <title>Weather-app-created:mohammadreza soltani</title>
+  </head>
+  <body class="sm:py-6 sm:px-3 sm:h-screen">
+    <main class="flex flex-col w-full rounded-3xl bg-black-800 text-white shadow-[0_0_70px_-10px_rgba(0,0,0,0.2)] sm:flex-row sm:h-96 sm:w-[630px]">
+      <section class="section relative h-60 sm:h-full w-full bg-[url(&#39;../src/image/bg.avif&#39;)] sm:w-[45%] rounded-3xl shadow-[0_0_20px_-10px_rgba(0,0,0,0.2)]">
+        <div class="gradiant w-full h-full rounded-3xl opacity-80"></div>
+        <div class="absolute w-full h-full left-0 top-0 flex sm:flex-col justify-between px-6 pt-4">
+          <div>
+            <h1 class="prose-2xl font-bold leading-loose today">Tuesday</h1>
+            <span class="block font-bold date">2022 / April / 5</span>
+            <!-- location icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin inline-block h-5 mr-1">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span class="inline-block mt-4 font-bold w-location">tehran</span>
+          </div>
+          <!-- weather icon -->
+          <div class="pb-8 flex flex-col text-center">
+            <img class=" w-24 m-0 h-24 w-icon self-end sm:self-start" src="file://cdn.weatherapi.com/weather/64x64/day/116.png">
+            <h1 class="font-bold text-3xl mt-3 w-temp">27 F</h1>
+            <h3 class="font-bold mt-3 text-2xl w-main">Partly cloudy</h3>
+          </div>
+        </div>
+      </section>
+
+      <section class="relative w-full sm:w-[55%] h-full pt-8">
+        <!-- today-info-container -->
+        <div class="px-8 pb-3 rounded-xl">
+          <div class="mb-3">
+            <span class="font-bold">PRECIPITATION</span><span class="float-right w-pressure"> %</span>
+            <div class="clear-both"></div>
+          </div>
+          <div class="mb-3">
+            <span class="font-bold">HUMIDITY</span><span class="float-right w-humidity"> %</span>
+            <div class="clear-both"></div>
+          </div>
+          <div class="mb-3">
+            <span class="font-bold">WIND</span><span class="float-right w-wind_speed"> km/h</span>
+            <div class="clear-both"></div>
+          </div>
+        </div>
+        <!-- week list container -->
+        <div class="mt-6">
+          <ul class="grid grid-cols-4 list-none my-3 mx-8 shadow-[0_0_50px_-5px_rgba(0,0,0,0.25)] rounded-[10px] bg-white">
+            <li class="cursor-pointer py-1 transition-all ease-linear duration-200 text-[#222831] rounded-[10px] bg-white shadow-[0_0_40px_-5px_rgba(0,0,0,0.2)] hover:scale-110">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun block h-[30px] w-auto mx-auto">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg><span class="block mt-[10px] text-center">Tue</span><span class="block text-center font-bold mt-[10px]">29°C</span>
+            </li>
+            <li class="cursor-pointer py-1 transition-all ease-linear duration-200 text-[#222831] rounded-[10px] hover:bg-white hover:scale-110 hover:shadow-[0_0_40px_-5px_rgba(0,0,0,0.2)]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cloud block h-[30px] w-auto mx-auto">
+                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg><span class="block text-center mt-[10px]">Wed</span><span class="block text-center font-bold mt-[10px]">21°C</span>
+            </li>
+            <li class="cursor-pointer py-1 transition-all ease-linear duration-200 text-[#222831] rounded-[10px] hover:bg-white hover:scale-110 hover:shadow-[0_0_40px_-5px_rgba(0,0,0,0.2)]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cloud-snow block h-[30px] w-auto mx-auto">
+                <path d="M20 17.58A5 5 0 0 0 18 8h-1.26A8 8 0 1 0 4 16.25"></path>
+                <line x1="8" y1="16" x2="8.01" y2="16"></line>
+                <line x1="8" y1="20" x2="8.01" y2="20"></line>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                <line x1="12" y1="22" x2="12.01" y2="22"></line>
+                <line x1="16" y1="16" x2="16.01" y2="16"></line>
+                <line x1="16" y1="20" x2="16.01" y2="20"></line></svg><span class="block text-center mt-[10px]">Thu</span><span class="block text-center font-bold mt-[10px]">08°C</span>
+            </li>
+            <li class="cursor-pointer py-1 transition-all ease-linear duration-200 text-[#222831] rounded-[10px] hover:bg-white hover:scale-110 hover:shadow-[0_0_40px_-5px_rgba(0,0,0,0.2)]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cloud-rain block h-[30px] w-auto mx-auto">
+                <line x1="16" y1="13" x2="16" y2="21"></line>
+                <line x1="8" y1="13" x2="8" y2="21"></line>
+                <line x1="12" y1="15" x2="12" y2="23"></line>
+                <path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"></path></svg><span class="block text-center mt-[10px]">Fry</span><span class="block text-center font-bold mt-[10px]">19°C</span>
+            </li>
+            <div class="clear-both"></div>
+          </ul>
+        </div>
+        <!-- location-container -->
+        <div class="py-6 px-9 mt-6">
+          <button class="modal-open  gradiant flex justify-center outline-none w-full box-border border-0 rounded-[25px] p-[10px] text-white font-bold shadow-[0_0_30px_-5px_rgba(0,0,0,0.25)] transition-all ease-linear duration-200 hover:scale-95">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin h-4 w-auto mr-1">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle></svg><span>Change location</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+  <!--Modal-->
+  <div id="locationModal" class="modal transition-all ease-linear duration-300 rounded opacity-0 pointer-events-none fixed w-full h-[20rem] top-4 left-0 flex  justify-center">
+    <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+    
+    <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded-[2.25rem] shadow-lg z-50 overflow-y-auto">
+      
+    
+
+      <!-- Add margin if you want to see some of the overlay behind the modal-->
+      <div class="modal-content px-6">
+        <h1 class="mt-4 prose-2xl text-center font-semibold">Change location</h1>
+        
+          <form class="  rounded   py-4 mb-4">
+           
+            <div class="mb-6">
+              <label class="city block text-gray-700 font-bold mb-2 text-xl" for="city">
+                City
+              </label>
+              <input id="city" class=" border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight outline-none focus:border-2 focus:border-[#0345af] " type="text">
+            </div>
+          <button id="w-change-btn" class="flex justify-center items-center mb-6 gradiant  outline-none w-full box-border border-0 rounded-[25px] p-[10px] text-white font-bold shadow-[0_0_30px_-5px_rgba(0,0,0,0.25)] transition-all ease-linear duration-200 hover:scale-95">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin h-4 w-auto mr-1">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle></svg><span>Change location</span>
+        </button>
+        <button class="modal-open danger outline-none w-full box-border border-0 rounded-[25px] p-[10px] text-white font-bold shadow-[0_0_30px_-5px_rgba(0,0,0,0.25)] transition-all ease-linear duration-200 hover:scale-95"> Close </button>
+
+                   
+         </form>
+      </div>
+    </div>
+  </div>
+    <script src="./Weather-app-created_mohammadreza soltani_files/weather.js.download"></script>
+    <script src="./Weather-app-created_mohammadreza soltani_files/ui.js.download"></script>
+    <script src="./Weather-app-created_mohammadreza soltani_files/storage.js.download"></script>
+    <script src="./Weather-app-created_mohammadreza soltani_files/app.js.download"></script>
+  
+
+</body></html>

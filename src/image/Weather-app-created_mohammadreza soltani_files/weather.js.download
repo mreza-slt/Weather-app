@@ -10,8 +10,7 @@ class Weather {
     //   `http://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${this.apiKey}`
     // );
     const response = await fetch(
-      // `http://api.weatherapi.com/v1/current.json?key=${this.apiKey}=${this.city}&aqi=no`
-      `http://api.weatherapi.com/v1/forecast.json?key=${this.apiKey}=${this.city}&days=4&aqi=yes&alerts=no`
+      `http://api.weatherapi.com/v1/current.json?key=${this.apiKey}=${this.city}&aqi=no`
     );
 
     if (response.ok) {
