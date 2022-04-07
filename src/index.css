@@ -1,13 +1,50 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap");
+
+:root {
+  --gradient: linear-gradient(135deg, #72edf2 10%, #5151e5 100%);
+  --danger: linear-gradient(135deg, #f2a572 10%, #e55151 100%);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  line-height: 1.25em;
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: #343d4b;
+  font-family: "Montserrat", sans-serif;
+}
+
+.App {
+   width: 100%;
+  height: 100%; display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gradiant {
+  background-image: var(--gradient);
+}
+.danger {
+  background-image: var(--danger);
+}
+
+@media screen and (min-width: 640px) {
+  .section {
+    -webkit-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+    -webkit-transform: scale(1.02) perspective(1000px);
+    transform: scale(1.02) perspective(1000px);
+  }
+  .section:hover {
+    -webkit-transform: scale(1.1) perspective(1500px) rotateY(10deg);
+    transform: scale(1.1) perspective(1500px) rotateY(10deg);
+  }
 }
